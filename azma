@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Azma Mumtaz Faza – Jasa Konsultan Pajak Surabaya</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Segoe UI',Arial,sans-serif;color:#222;}
+
+    /* NAV */
+    nav{background:#fff;padding:14px 40px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.08);position:sticky;top:0;z-index:999;}
+    .nav-logo{font-size:17px;font-weight:700;color:#1b4332;}
+    .nav-logo span{color:#d4a017;}
+    .nav-links a{text-decoration:none;color:#444;margin-left:24px;font-size:14px;font-weight:500;}
+    .nav-links a:hover{color:#1b4332;}
+    .nav-cta{background:#1b4332;color:#fff!important;padding:8px 18px;border-radius:6px;font-size:13px!important;}
+    .nav-cta:hover{background:#2d6a4f!important;}
+
+    /* HERO */
+    .hero{background:linear-gradient(135deg,#1b4332 0%,#2d6a4f 60%,#40916c 100%);padding:90px 40px 80px;text-align:center;}
+    .hero-badge{display:inline-block;background:rgba(255,255,255,.15);color:#fff;padding:6px 16px;border-radius:20px;font-size:13px;margin-bottom:20px;border:1px solid rgba(255,255,255,.25);}
+    .hero h1{color:#fff;font-size:42px;font-weight:800;line-height:1.2;margin-bottom:16px;}
+    .hero h1 span{color:#ffd166;}
+    .hero p{color:rgba(255,255,255,.82);font-size:17px;max-width:600px;margin:0 auto 32px;line-height:1.7;}
+    .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .btn-gold{background:#d4a017;color:#fff;border:none;padding:14px 30px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;}
+    .btn-gold:hover{background:#b8860b;}
+    .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);padding:14px 30px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;}
+    .btn-outline:hover{background:rgba(255,255,255,.1);}
+    .hero-stats{display:flex;gap:40px;justify-content:center;margin-top:50px;flex-wrap:wrap;}
+    .stat{text-align:center;}
+    .stat .num{font-size:28px;font-weight:800;color:#ffd166;}
+    .stat .lbl{font-size:13px;color:rgba(255,255,255,.7);margin-top:4px;}
+
+    /* SECTION COMMONS */
+    section{padding:70px 40px;}
+    .section-tag{display:inline-block;background:#e8f5e9;color:#1b4332;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;letter-spacing:.5px;}
+    .section-title{font-size:30px;font-weight:800;color:#1b4332;margin-bottom:12px;}
+    .section-sub{font-size:15px;color:#666;line-height:1.7;max-width:580px;}
+    .center{text-align:center;}
+    .center .section-sub{margin:0 auto;}
+
+    /* LAYANAN */
+    .layanan{background:#f8fdf9;}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px;}
+    .service-card{background:#fff;border-radius:14px;padding:28px 24px;border:1px solid #e0f0e8;transition:box-shadow .2s,transform .2s;}
+    .service-card:hover{box-shadow:0 8px 24px rgba(27,67,50,.12);transform:translateY(-3px);}
+    .service-icon{width:52px;height:52px;border-radius:12px;background:#e8f5e9;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px;}
+    .service-card h3{font-size:16px;font-weight:700;color:#1b4332;margin-bottom:8px;}
+    .service-card p{font-size:13px;color:#666;line-height:1.6;}
+    .service-price{margin-top:14px;font-size:13px;color:#d4a017;font-weight:700;}
+
+    /* ALUR KERJA */
+    .alur{background:#fff;}
+    .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:40px;position:relative;}
+    .step{text-align:center;padding:0 20px;position:relative;}
+    .step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:28px;font-size:20px;color:#b7e4c7;}
+    .step-num{width:56px;height:56px;border-radius:50%;background:#1b4332;color:#fff;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+    .step h4{font-size:15px;font-weight:700;color:#1b4332;margin-bottom:8px;}
+    .step p{font-size:13px;color:#666;line-height:1.6;}
+
+    /* PAKET */
+    .paket{background:#f8fdf9;}
+    .paket-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px;}
+    .paket-card{background:#fff;border-radius:16px;padding:32px 28px;border:2px solid #e0f0e8;position:relative;transition:box-shadow .2s;}
+    .paket-card.popular{border-color:#1b4332;box-shadow:0 8px 32px rgba(27,67,50,.15);}
+    .popular-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#1b4332;color:#fff;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;}
+    .paket-card h3{font-size:18px;font-weight:800;color:#1b4332;margin-bottom:6px;}
+    .paket-card .target{font-size:13px;color:#888;margin-bottom:20px;}
+    .paket-card .harga{font-size:28px;font-weight:800;color:#d4a017;margin-bottom:4px;}
+    .paket-card .harga span{font-size:14px;font-weight:400;color:#888;}
+    .paket-divider{border:none;border-top:1px solid #e8f5e9;margin:20px 0;}
+    .paket-card ul{list-style:none;margin-bottom:24px;}
+    .paket-card ul li{font-size:13px;color:#555;padding:5px 0;display:flex;align-items:flex-start;gap:8px;}
+    .paket-card ul li::before{content:'✓';color:#1b4332;font-weight:700;flex-shrink:0;}
+    .btn-paket{display:block;text-align:center;background:#1b4332;color:#fff;padding:12px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;}
+    .btn-paket:hover{background:#2d6a4f;}
+    .paket-card.popular .btn-paket{background:#d4a017;}
+    .paket-card.popular .btn-paket:hover{background:#b8860b;}
+
+    /* UPLOAD */
+    .upload-section{background:#fff;}
+    .upload-wrap{max-width:600px;margin:40px auto 0;}
+    .form-group{margin-bottom:16px;}
+    .form-group label{display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;}
+    .form-group input, .form-group textarea, .form-group select{width:100%;padding:11px 14px;border:1.5px solid #d0e8d8;border-radius:8px;font-size:14px;outline:none;transition:border .2s;font-family:inherit;}
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus{border-color:#2d6a4f;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .upload-box{border:2px dashed #2d6a4f;border-radius:12px;padding:36px;text-align:center;cursor:pointer;background:#f8fdf9;transition:background .2s;margin-top:8px;}
+    .upload-box:hover{background:#e8f5e9;}
+    .upload-box .up-icon{font-size:36px;margin-bottom:10px;}
+    .upload-box p{font-size:14px;color:#555;margin-bottom:4px;}
+    .upload-box span{font-size:12px;color:#999;}
+    #fileInput{display:none;}
+    .file-list{margin-top:12px;}
+    .file-item{display:flex;justify-content:space-between;align-items:center;background:#f5f5f5;border-radius:8px;padding:9px 14px;margin-bottom:6px;font-size:13px;}
+    .remove-btn{background:none;border:none;color:#c0392b;cursor:pointer;font-size:15px;}
+    .btn-submit{width:100%;background:#1b4332;color:#fff;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;}
+    .btn-submit:hover{background:#2d6a4f;}
+    .upload-status{display:none;background:#e8f5e9;border-radius:10px;padding:16px 20px;text-align:center;font-size:14px;color:#1b4332;margin-top:16px;}
+
+    /* TESTIMONI */
+    .testi{background:#f8fdf9;}
+    .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:40px;}
+    .testi-card{background:#fff;border-radius:14px;padding:26px 22px;border:1px solid #e0f0e8;}
+    .stars{color:#f4b400;font-size:15px;margin-bottom:12px;}
+    .testi-card p{font-size:14px;color:#555;line-height:1.7;margin-bottom:16px;font-style:italic;}
+    .testi-name{font-size:13px;font-weight:700;color:#1b4332;}
+    .testi-role{font-size:12px;color:#888;}
+
+    /* KONTAK */
+    .kontak{background:linear-gradient(135deg,#1b4332,#2d6a4f);text-align:center;}
+    .kontak .section-title{color:#fff;}
+    .kontak .section-sub{color:rgba(255,255,255,.75);margin:0 auto 32px;}
+    .kontak-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+    .kontak-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:20px 28px;text-align:center;min-width:200px;}
+    .kontak-card .k-icon{font-size:28px;margin-bottom:8px;}
+    .kontak-card p{font-size:13px;color:rgba(255,255,255,.7);margin-bottom:4px;}
+    .kontak-card a{color:#ffd166;font-size:14px;font-weight:600;text-decoration:none;}
+
+    /* DOWNLOAD */
+    .dl-bar{background:#d4a017;padding:16px 40px;display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;}
+    .dl-bar p{color:#fff;font-size:14px;}
+    .btn-dl{background:#fff;color:#d4a017;border:none;padding:9px 22px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer;}
+    .btn-dl:hover{background:#fffbe6;}
+
+    /* FOOTER */
+    footer{background:#0d2b1f;color:rgba(255,255,255,.45);text-align:center;padding:22px 40px;font-size:13px;}
+
+    @media(max-width:600px){
+      .hero h1{font-size:28px;}
+      .form-row{grid-template-columns:1fr;}
+      .step:not(:last-child)::after{display:none;}
+      nav .nav-links{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">🧾 Azma <span>Konsultan Pajak</span></div>
+  <div class="nav-links">
+    <a href="#layanan">Layanan</a>
+    <a href="#paket">Paket</a>
+    <a href="#upload">Upload Dokumen</a>
+    <a href="#kontak">Kontak</a>
+    <a href="https://wa.me/62895341862272" class="nav-cta">📱 Konsultasi Gratis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+  <div class="hero-badge">✅ Konsultan Pajak Profesional · Surabaya</div>
+  <h1>Jasa Pembuatan & Pelaporan <span>SPT Pajak</span> Terpercaya</h1>
+  <p>Kami menangani seluruh proses perpajakan Anda — dari perhitungan, penyusunan, hingga pelaporan SPT ke DJP. Tepat waktu, akurat, dan sesuai regulasi.</p>
+  <div class="hero-btns">
+    <a href="#paket" class="btn-gold">Lihat Paket Layanan →</a>
+    <a href="https://wa.me/62895341862272" class="btn-outline">💬 Chat WhatsApp</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">500+</div><div class="lbl">Klien Dilayani</div></div>
+    <div class="stat"><div class="num">8+</div><div class="lbl">Tahun Pengalaman</div></div>
+    <div class="stat"><div class="num">100%</div><div class="lbl">BPE Terbit</div></div>
+    <div class="stat"><div class="num">0</div><div class="lbl">Sanksi Keterlambatan</div></div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="layanan" id="layanan">
+  <div class="center">
+    <div class="section-tag">LAYANAN KAMI</div>
+    <div class="section-title">Solusi Pajak Lengkap untuk Anda</div>
+    <p class="section-sub">Mulai dari SPT Tahunan hingga pendampingan pemeriksaan, kami siap membantu dengan solusi yang tepat dan efisien.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📋</div>
+      <h3>SPT Tahunan Orang Pribadi</h3>
+      <p>Penyusunan dan pelaporan SPT Tahunan PPh Orang Pribadi (1770, 1770S, 1770SS) lengkap hingga terbit BPE.</p>
+      <div class="service-price">Mulai Rp 450.000</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏢</div>
+      <h3>SPT Tahunan Badan</h3>
+      <p>Perhitungan koreksi fiskal, laporan keuangan fiskal, input Coretax, hingga SPT Tahunan Badan terkirim ke DJP.</p>
+      <div class="service-price">Mulai Rp 3.500.000</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>SPT Masa PPh & PPN</h3>
+      <p>Pelaporan SPT Masa PPh 21, PPh 23, PPh 25, serta SPT Masa PPN bulanan tepat waktu setiap periode.</p>
+      <div class="service-price">Mulai Rp 500.000/bln</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚖️</div>
+      <h3>Pendampingan Pemeriksaan</h3>
+      <p>Pendampingan saat pemeriksaan pajak oleh DJP, SP2DK, hingga banding ke Pengadilan Pajak.</p>
+      <div class="service-price">Hubungi Kami</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3>Konsultasi Pajak</h3>
+      <p>Konsultasi masalah perpajakan, perencanaan pajak yang efisien dan legal sesuai regulasi berlaku.</p>
+      <div class="service-price">Mulai Rp 200.000/sesi</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📁</div>
+      <h3>Kepatuhan Pajak Rutin</h3>
+      <p>Pengelolaan kewajiban pajak bulanan dan tahunan secara menyeluruh agar bisnis Anda tetap patuh.</p>
+      <div class="service-price">Paket Bulanan</div>
+    </div>
+  </div>
+</section>
+
+<!-- ALUR KERJA -->
+<section class="alur" id="alur">
+  <div class="center">
+    <div class="section-tag">CARA KERJA</div>
+    <div class="section-title">Proses Mudah, Cepat & Transparan</div>
+    <p class="section-sub">Hanya 4 langkah untuk menyelesaikan kewajiban pajak Anda bersama kami.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Pilih Layanan</h4>
+      <p>Tentukan layanan sesuai kebutuhan dan lakukan pembayaran sesuai paket.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Kirim Data</h4>
+      <p>Upload dokumen & data pajak Anda melalui form di bawah atau via WhatsApp.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Proses & Hitung</h4>
+      <p>Tim kami menghitung, menyusun, dan menyiapkan draft SPT untuk persetujuan Anda.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Terima BPE</h4>
+      <p>SPT dilaporkan ke DJP dan Anda menerima Bukti Penerimaan Elektronik resmi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAKET -->
+<section class="paket" id="paket">
+  <div class="center">
+    <div class="section-tag">PAKET HARGA</div>
+    <div class="section-title">Transparan & Terjangkau</div>
+    <p class="section-sub">Pilih paket yang sesuai dengan skala usaha dan kebutuhan perpajakan Anda.</p>
+  </div>
+  <div class="paket-grid">
+    <div class="paket-card">
+      <h3>Orang Pribadi</h3>
+      <div class="target">Karyawan & Freelancer</div>
+      <div class="harga">Rp 450.000 <span>/ laporan</span></div>
+      <hr class="paket-divider"/>
+      <ul>
+        <li>SPT Tahunan 1770S / 1770SS</li>
+        <li>Analisis bukti potong A1/A2</li>
+        <li>Hitung pajak & koreksi</li>
+        <li>Lapor via e-Filing DJP</li>
+        <li>BPE resmi dari DJP</li>
+        <li>Konsultasi via WhatsApp</li>
+      </ul>
+      <a href="https://wa.me/62895341862272" class="btn-paket">Mulai Sekarang</a>
+    </div>
+    <div class="paket-card popular">
+      <div class="popular-badge">⭐ PALING DIMINATI</div>
+      <h3>UMKM & Usaha Kecil</h3>
+      <div class="target">Omset s/d Rp 5 Miliar</div>
+      <div class="harga">Rp 3.500.000 <span>/ tahun</span></div>
+      <hr class="paket-divider"/>
+      <ul>
+        <li>SPT Tahunan Badan / OP Usaha</li>
+        <li>Koreksi fiskal lengkap</li>
+        <li>Laporan keuangan fiskal</li>
+        <li>Input Coretax DJP</li>
+        <li>BPE resmi dari DJP</li>
+        <li>Notifikasi batas waktu SPT</li>
+        <li>Konsultasi prioritas</li>
+      </ul>
+      <a href="https://wa.me/62895341862272" class="btn-paket">Mulai Sekarang</a>
+    </div>
+    <div class="paket-card">
+      <h3>Usaha Menengah & Besar</h3>
+      <div class="target">Omset > Rp 5 Miliar</div>
+      <div class="harga">Custom <span>/ hubungi kami</span></div>
+      <hr class="paket-divider"/>
+      <ul>
+        <li>SPT Tahunan Badan lengkap</li>
+        <li>SPT Masa PPh & PPN bulanan</li>
+        <li>Pendampingan pemeriksaan</li>
+        <li>Transfer pricing documentation</li>
+        <li>Tax planning strategis</li>
+        <li>Dedicated konsultan</li>
+        <li>Laporan bulanan & tahunan</li>
+      </ul>
+      <a href="https://wa.me/62895341862272" class="btn-paket">Hubungi Kami</a>
+    </div>
+  </div>
+</section>
+
+<!-- UPLOAD DOKUMEN -->
+<section class="upload-section" id="upload">
+  <div class="center">
+    <div class="section-tag">UPLOAD DOKUMEN</div>
+    <div class="section-title">Kirim Dokumen Pajak Anda</div>
+    <p class="section-sub">Lengkapi data di bawah lalu upload dokumen Anda langsung ke Google Drive kami. Aman, cepat, dan terorganisir.</p>
+  </div>
+  <div class="upload-wrap">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Nama Lengkap *</label>
+        <input type="text" id="clientName" placeholder="Budi Santoso"/>
+      </div>
+      <div class="form-group">
+        <label>No. WhatsApp *</label>
+        <input type="text" id="clientWA" placeholder="08xxxxxxxxxx"/>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Alamat Email *</label>
+      <input type="email" id="clientEmail" placeholder="email@gmail.com"/>
+    </div>
+    <div class="form-group">
+      <label>Jenis Layanan</label>
+      <select id="clientService">
+        <option value="">-- Pilih Layanan --</option>
+        <option>SPT Tahunan Orang Pribadi</option>
+        <option>SPT Tahunan Badan</option>
+        <option>SPT Masa PPh & PPN</option>
+        <option>Pendampingan Pemeriksaan</option>
+        <option>Konsultasi Pajak</option>
+        <option>Lainnya</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Catatan Tambahan</label>
+      <input type="text" id="clientNote" placeholder="Misal: SPT Tahunan 2024, ada penghasilan lain"/>
+    </div>
+    <div class="form-group">
+      <label>Upload Dokumen (PDF, JPG, PNG, XLSX — maks. 10MB)</label>
+      <div class="upload-box" onclick="bukaGoogleDrive()" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+        <div class="up-icon">📂</div>
+        <p><strong>Klik untuk Upload ke Google Drive</strong></p>
+        <span>Anda akan diarahkan ke folder Google Drive kami</span>
+      </div>
+      <input type="file" id="fileInput" multiple accept=".pdf,.jpg,.jpeg,.png,.xlsx,.csv"/>
+    </div>
+    <div class="file-list" id="fileList"></div>
+    <button class="btn-submit" onclick="submitForm()">⬆️ Kirim Data & Buka Google Drive</button>
+    <div class="upload-status" id="uploadStatus"></div>
+    <p style="font-size:12px;color:#aaa;text-align:center;margin-top:12px;">* Setelah klik tombol, Google Drive akan terbuka di tab baru. Login Google diperlukan untuk upload file.</p>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section class="testi" id="testi">
+  <div class="center">
+    <div class="section-tag">TESTIMONI</div>
+    <div class="section-title">Dipercaya Ratusan Klien</div>
+    <p class="section-sub">Kepercayaan klien adalah prioritas utama kami dalam setiap layanan perpajakan.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Prosesnya sangat mudah dan cepat. SPT saya selesai dalam 2 hari kerja dan BPE langsung terbit. Sangat recommended!"</p>
+      <div class="testi-name">Rina Kartika</div>
+      <div class="testi-role">Karyawan Swasta, Surabaya</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Sudah 3 tahun menggunakan jasa Azma untuk SPT tahunan perusahaan kami. Selalu tepat waktu dan tidak pernah ada masalah dengan DJP."</p>
+      <div class="testi-name">Hendra Wijaya</div>
+      <div class="testi-role">Owner CV Maju Jaya, Sidoarjo</div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Konsultasinya sangat membantu, saya jadi paham kewajiban pajak sebagai freelancer. Biaya terjangkau, pelayanan profesional."</p>
+      <div class="testi-name">Dewi Anggraini</div>
+      <div class="testi-role">Freelance Designer, Surabaya</div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="kontak" id="kontak">
+  <div class="section-tag" style="background:rgba(255,255,255,.15);color:#fff;">HUBUNGI KAMI</div>
+  <div class="section-title">Siap Membantu Urusan Pajak Anda</div>
+  <p class="section-sub">Konsultasi pertama GRATIS! Hubungi kami sekarang melalui WhatsApp atau email.</p>
+  <div class="kontak-cards">
+    <div class="kontak-card">
+      <div class="k-icon">📱</div>
+      <p>WhatsApp</p>
+      <a href="https://wa.me/62895341862272">+62 895-3418-62272</a>
+    </div>
+    <div class="kontak-card">
+      <div class="k-icon">📧</div>
+      <p>Email</p>
+      <a href="mailto:akhsubkhan@gmail.com">akhsubkhan@gmail.com</a>
+    </div>
+    <div class="kontak-card">
+      <div class="k-icon">📍</div>
+      <p>Lokasi</p>
+      <a href="#">Surabaya, Jawa Timur</a>
+    </div>
+  </div>
+  <a href="https://wa.me/62895341862272" class="btn-gold" style="font-size:15px;">💬 Chat WhatsApp Sekarang →</a>
+</section>
+
+<!-- DOWNLOAD BAR -->
+<div class="dl-bar">
+  <p>💾 Simpan halaman ini sebagai file HTML untuk digunakan di website Anda</p>
+  <button class="btn-dl" onclick="downloadHTML()">⬇️ Download File HTML</button>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Azma Mumtaz Faza · Konsultan Pajak Profesional · Surabaya &nbsp;|&nbsp;
+  <a href="https://wa.me/62895341862272" style="color:#ffd166;text-decoration:none;">WhatsApp</a> &nbsp;|&nbsp;
+  <a href="mailto:akhsubkhan@gmail.com" style="color:#ffd166;text-decoration:none;">Email</a>
+</footer>
+
+<script>
+  const DRIVE = 'https://drive.google.com/drive/folders/1MyXDlKtodTsyogmI4tG9aRUwAhNeGfyF?usp=sharing';
+
+  function bukaGoogleDrive(){ window.open(DRIVE,'_blank'); }
+
+  function handleDrop(e){
+    e.preventDefault();
+    e.currentTarget.style.background='#f8fdf9';
+  }
+
+  function submitForm(){
+    const name  = document.getElementById('clientName').value.trim();
+    const wa    = document.getElementById('clientWA').value.trim();
+    const email = document.getElementById('clientEmail').value.trim();
+    if(!name){ alert('Mohon isi nama lengkap.'); return; }
+    if(!wa)  { alert('Mohon isi nomor WhatsApp.'); return; }
+    if(!email || !email.includes('@')){ alert('Mohon isi email yang valid.'); return; }
+
+    const btn = document.querySelector('.btn-submit');
+    btn.textContent = '⏳ Memproses...';
+    btn.disabled = true;
+
+    window.open(DRIVE,'_blank');
+
+    const layanan = document.getElementById('clientService').value || '-';
+    const note    = document.getElementById('clientNote').value.trim();
+
+    setTimeout(()=>{
+      const s = document.getElementById('uploadStatus');
+      s.innerHTML = `✅ <strong>Terima kasih, ${name}!</strong><br>
+        Google Drive sudah terbuka — silakan upload dokumen Anda di sana.<br>
+        Layanan: <strong>${layanan}</strong>${note?`<br>Catatan: ${note}`:''}<br>
+        Kami akan menghubungi Anda via WhatsApp <strong>${wa}</strong> atau email <strong>${email}</strong>.`;
+      s.style.display = 'block';
+      btn.textContent = '⬆️ Kirim Data & Buka Google Drive';
+      btn.disabled = false;
+      ['clientName','clientWA','clientEmail','clientNote'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('clientService').selectedIndex=0;
+    }, 800);
+  }
+
+  function downloadHTML(){
+    const blob = new Blob([document.documentElement.outerHTML],{type:'text/html'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'azma-konsultan-pajak.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+</script>
+</body>
+</html>
